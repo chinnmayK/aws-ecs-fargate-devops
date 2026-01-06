@@ -3,6 +3,12 @@ const app = express();
 
 const PORT = 3000;
 
+// Health check endpoint (for ALB / debugging)
+app.get("/health", (req, res) => {
+  res.status(200).send("OK");
+});
+
+// Main homepage
 app.get("/", (req, res) => {
   res.send(`
     <!DOCTYPE html>
